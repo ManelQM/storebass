@@ -8,7 +8,7 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors(corsOptions));
 
-app.use(router());
+// app.use(router());
 
 var corsOptions = {
     origin: "*",
@@ -18,13 +18,23 @@ var corsOptions = {
   };
 
 
+// app.listen(PORT, () => {
+//     console.log (`YEEEEAHHH RUNNING ON PORT ${PORT}`);
+//     db.authenticate()
+//         .then(() => {
+//             console.log("DB Conection => SUCCESS")
+//         })
+//         .catch((error) => {
+//             console.log ("Error: " + error);
+//         });
+// })
+
 app.listen(PORT, () => {
-    console.log (`YEEEEAHHH RUNNING ON PORT ${PORT}`);
-    db.authenticate()
-        .then(() => {
-            console.log("DB Conection => SUCCESS")
-        })
-        .catch((error) => {
-            console.log ("Error: " + error);
-        });
-})
+    console.log(`Welcome to StoreBass at Port ${PORT}`);
+  
+    db.then(() => {
+      console.log("Nice to see you again (DB connected)");
+    }).catch((error) => {
+      console.log("This thing between us its not working: " + error);
+    });
+  });
