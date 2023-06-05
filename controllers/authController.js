@@ -1,4 +1,4 @@
-const {user} = require("../models/index");
+const {User} = require("../models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken"); 
 const authConfig = require("../config/auth");
@@ -10,7 +10,7 @@ const AuthController = {};
 AuthController.login = (req, res) => {
     let { email, password } = req.body; 
     //Search User
-    user.findOne ({where: {email: email }
+    User.findOne ({where: {email: email }
     }).then(user => {
         if (!user) {
             res.status(404).json({msg : "User not found"})
@@ -41,7 +41,7 @@ AuthController.register = (req, res)=> {
 
     //CREAR USUARIO
 
-    user.genesis({
+    User.create({
         name: req.body.name,
         email: req.body.email,
         password: password
