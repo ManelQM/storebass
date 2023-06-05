@@ -23,7 +23,7 @@ app.listen(PORT, () => {
   db.then(() => {
     console.log("Nice to see you again (DB connected)");
   }).catch((error) => {
-    console.log("This thing between us its not working: " + error);
+    console.log("THIS THING BETWEEN US ITS NOT WORKING: " + error);
   });
 });
 
