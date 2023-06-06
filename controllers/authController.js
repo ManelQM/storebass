@@ -16,7 +16,7 @@ AuthController.login = (req, res) => {
             res.status(404).json({msg : "User not found"})
         } else {
             if (bcrypt.compareSync(password, user.password)) {
-                // The creation of the Token
+                // THE CREATION OF THE TOKEN
                 let token = jwt.sign({ user: user }, authConfig.secret, {
                     expiresIn: authConfig.expires
                 });
@@ -48,7 +48,7 @@ AuthController.register = (req, res)=> {
 
     }).then(user => {
 
-        //TOKEN SESSION
+        //THE CREATION OF THE TOKEN
         let token = jwt.sign({ user: user }, authConfig.secret, {
             expiresIn: authConfig.expires
         });
