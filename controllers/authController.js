@@ -15,6 +15,7 @@ AuthController.login = (req, res) => {
         if (!user) {
             res.status(404).json({msg : "User not found"})
         } else {
+            // TALES FROM THE ENCRYPT
             if (bcrypt.compareSync(password, user.password)) {
                 // THE CREATION OF THE TOKEN
                 let token = jwt.sign({ user: user }, authConfig.secret, {
