@@ -3,15 +3,13 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('users', {
-      id: {
+      id_user: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_role: {
-        type: Sequelize.INTEGER
-      },
+    
       email: {
         type: Sequelize.STRING
       },
@@ -26,6 +24,16 @@ module.exports = {
       },
       address: {
         type: Sequelize.STRING
+      },
+
+      id_role: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "role",
+          key: "id:role"
+        },
+        onDelete: "cascade",
+        onUpdate: "cascade"
       },
       createdAt: {
         allowNull: false,
