@@ -10,11 +10,32 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      productstore.hasMany(models.orders);
+      productstore.hasOne(models.amps);
+      productstore.hasOne(models.books);
+      productstore.hasOne(models.cabinets);
+      productstore.hasOne(models.cables);
+      productstore.hasOne(models.cases);
+      productstore.hasOne(models.newbasses);
+      productstore.hasOne(models.pedals);
+      productstore.hasOne(models.picks);
+      productstore.hasOne(models.pickups);
+      productstore.hasOne(models.straps);
+      productstore.hasOne(models.strings);
+      productstore.hasOne(models.vintagebasses);
     }
   }
   productstore.init({
-    name: DataTypes.STRING
+    id_productstore: {
+      type:DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey:true,
+      allowNull: false,
+    },
+    name: {
+      type:DataTypes.STRING,
+      allowNull: false 
+    },
   }, {
     sequelize,
     modelName: 'productstore',
