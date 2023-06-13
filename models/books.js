@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; 
 const {
   Model
 } = require('sequelize');
@@ -10,14 +10,33 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      books.belongsTo(models.productstore);
     }
   }
   books.init({
-    productstore_id: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    description: DataTypes.STRING,
-    setup: DataTypes.STRING
+    id_book: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    id_productstore: {
+      type:DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "productstore",
+        key: "id_productstore",        
+      },
+    },
+    name: {
+      type:DataTypes.STRING,
+    },
+    description: {
+      type:DataTypes.STRING,
+    },
+    setup: {
+      type:DataTypes.STRING,
+    },
   }, {
     sequelize,
     modelName: 'books',

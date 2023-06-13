@@ -3,14 +3,21 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('cabinets', {
-      id: {
+      id_cabinet: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      productstore_id: {
-        type: Sequelize.INTEGER
+      id_productstore: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "productstore",
+          key: "id_productstore",
+        },
+        onDelete: "cascade",
+        onUpdate: "cascade",
       },
       name: {
         type: Sequelize.STRING
