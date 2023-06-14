@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      pedals.belongsTo(models.productstore); 
+      pedals.belongsTo(models.productstore, {
+        foreignKey: "id_productstore",
+       }); 
     }
   }
   pedals.init({

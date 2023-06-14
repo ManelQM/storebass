@@ -10,19 +10,45 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      productstore.hasMany(models.orders);
-      productstore.hasOne(models.amps);
-      productstore.hasOne(models.books);
-      productstore.hasOne(models.cabinets);
-      productstore.hasOne(models.cables);
-      productstore.hasOne(models.cases);
-      productstore.hasOne(models.newbasses);
-      productstore.hasOne(models.pedals);
-      productstore.hasOne(models.picks);
-      productstore.hasOne(models.pickups);
-      productstore.hasOne(models.straps);
-      productstore.hasOne(models.strings);
-      productstore.hasOne(models.vintagebasses);
+      productstore.hasMany(models.orders, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.amps, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.books, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.cabinets, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.cables, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.cases, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.newbasses, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.pedals, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.picks, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.pickups, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.straps, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.strings, {
+        foreignKey: "id_productstore",
+       });
+      productstore.hasOne(models.vintagebasses, {
+        foreignKey: "id_productstore",
+       });
     }
   }
   productstore.init({
