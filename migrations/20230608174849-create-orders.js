@@ -9,11 +9,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      productstore_id: {
-        type: Sequelize.INTEGER
+      id_productstore: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "productstore",
+          key: "id_productstore",
+        },
+        onDelete: "cascade",
+        onUpdate: "cascade",
       },
-      user_id: {
-        type: Sequelize.INTEGER
+      id_user: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "user",
+          key: "id_user", 
+        },
+        onDelete: "cascade",
+        onUpdate: "cascade",
       },
       ships: {
         type: Sequelize.INTEGER

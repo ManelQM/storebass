@@ -9,8 +9,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      productstore_id: {
-        type: Sequelize.INTEGER
+      id_productstore: {
+        type: Sequelize.INTEGER,
+        references : {
+          model: "productstore",
+          key: "id_productstore",
+        },
+        onDelete: "cascade",
+        onUpdate: "cascade",
       },
       name: {
         type: Sequelize.STRING
