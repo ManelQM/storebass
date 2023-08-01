@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     /**
@@ -15,52 +13,54 @@ module.exports = (sequelize, DataTypes) => {
       });
       user.hasMany(models.orders, {
         foreignKey: "id_user",
-      }); 
+      });
     }
   }
-  user.init({
-    id_user: {
-      type:DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true
+  user.init(
+    {
+      id_user: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
 
-    },
+      id_role: {
+        type: DataTypes.INTEGER,
+        defaultValue: 2,
+        references: {
+          model: "role",
+          key: "id_role",
+        },
+      },
 
-    id_role: {
-      type: DataTypes.INTEGER,
-      defaultValue: 2,
-      references: {
-        model: "role",
-        key: "id_role",
-      }
-    },
+      email: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false,
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
 
-    email: {  
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false
-  },
-    password: {  
-      type: DataTypes.STRING,
-      allowNull: false 
-    },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
 
-    name: {
-      type:DataTypes.STRING,
-      allowNull: false 
-    },
+      surname: {
+        type: DataTypes.STRING,
+      },
 
-    surname: {
-      type: DataTypes.STRING,
+      address: {
+        type: DataTypes.STRING,
+      },
     },
-
-    address: {
-      type: DataTypes.STRING
-    },
-  }, {
-    sequelize,
-    modelName: 'user',
-  });
+    {
+      sequelize,
+      modelName: "user",
+    }
+  );
   return user;
 };

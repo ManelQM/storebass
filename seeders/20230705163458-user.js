@@ -1,10 +1,11 @@
 "use strict";
-
+const bcrypt = require("bcrypt");
+const authConfig = require("../config/auth");
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      "user",
+      "Users",
       [
         {
           id_user: 1,
@@ -17,6 +18,8 @@ module.exports = {
           name: "Mr.Admin",
           surname: "iseeyou",
           address: "mordor",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id_user: 2,
@@ -29,6 +32,8 @@ module.exports = {
           name: "Jaco",
           surname: "Pastorius",
           address: "Norristown",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id_user: 3,
@@ -41,6 +46,8 @@ module.exports = {
           name: "Marcus",
           surname: "Miller",
           address: "Brooklyn",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id_user: 4,
@@ -53,7 +60,9 @@ module.exports = {
           name: "Steve",
           surname: "Harris",
           address: "London",
-        }
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
         {
           id_user: 5,
           id_role: 2,
@@ -65,13 +74,15 @@ module.exports = {
           name: "Geddy",
           surname: "Lee",
           address: "Toronto",
-        }
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("user", null, {});
+    await queryInterface.bulkDelete("Users", null, {});
   },
 };
