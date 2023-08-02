@@ -1,4 +1,5 @@
-const {User} = require("../models/user");
+const {Users} = require("../models/users");
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken"); 
 const authConfig = require("../config/auth");
@@ -9,8 +10,9 @@ const AuthController = {};
 // LOGIN 
 AuthController.login = (req, res) => {
     let { email, password } = req.body; 
+   
     //Search User
-    User.findOne ({where: {email: email }
+    Users.findOne ({where: {email: email }
     }).then(user => {
         if (!user) {
             res.status(404).json({msg : "User not found"})
