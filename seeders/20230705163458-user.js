@@ -8,8 +8,8 @@ module.exports = {
       "Users",
       [
         {
-          id_user: 1,
-          id_role: 1,
+          
+          roleid: 1,
           email: "mradmin@fakemail.com",
           password: bcrypt.hashSync(
             "Manel12345",
@@ -22,8 +22,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          id_user: 2,
-          id_role: 2,
+          
+          roleid: 2,
           email: "pastorius@fakemail.com",
           password: bcrypt.hashSync(
             "jaco12345",
@@ -36,8 +36,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          id_user: 3,
-          id_role: 2,
+          
+          roleid: 2,
           email: "miller@fakemail.com",
           password: bcrypt.hashSync(
             "marcus12345",
@@ -50,8 +50,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          id_user: 4,
-          id_role: 2,
+          
+          roleid: 2,
           email: "harris@fakemail.com",
           password: bcrypt.hashSync(
             "steve12345",
@@ -64,8 +64,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          id_user: 5,
-          id_role: 2,
+         
+          roleid: 2,
           email: "lee@fakemail.com",
           password: bcrypt.hashSync(
             "geddy12345",

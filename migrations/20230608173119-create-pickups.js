@@ -3,17 +3,17 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Pickups', {
-      id_pickup: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_productstore: {
+      productstoreid: {
         type: Sequelize.INTEGER,
         references: {
           model: "Productstores",
-          key: "id_productstore",
+          key: "id",
       },
         onDelete: "cascade",
         onUpdate: "cascade",

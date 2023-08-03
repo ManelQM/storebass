@@ -11,23 +11,23 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       books.belongsTo(models.productstore, {
-        foreignKey: "id_productstore",
+        foreignKey: "productstoreid",
        });
     }
   }
   books.init({
-    id_book: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    id_productstore: {
+    // id_book: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   autoIncrement: true,
+    //   primaryKey: true,
+    // },
+    productstoreid: {
       type:DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "productstore",
-        key: "id_productstore",        
+        key: "id",        
       },
     },
     name: {

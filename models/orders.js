@@ -11,35 +11,30 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       orders.belongsTo(models.user,{
-        foreignKey: "id_user",
+        foreignKey: "userid",
        });
       orders.belongsTo(models.productstore, {
-        foreignKey: "id_productstore",
+        foreignKey: "productstoreid",
        });
     }
   }
   orders.init({
-    id_order: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    id_productstore: {
+ 
+    productstoreid: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "productstore",
-        key: "id_productstore", 
+        key: "id", 
       },
     },
     
-    id_user: {
+    userid: {
       type:DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "user",
-        key: "id_user",
+        key: "id",
       }
     },
     ships: DataTypes.INTEGER

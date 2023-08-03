@@ -11,23 +11,23 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       pickups.belongsTo(models.productstore, {
-        foreignKey: "id_productstore",
+        foreignKey: "productstoreid",
        });
     }
   }
   pickups.init({
-    id_pickup: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    id_productstore: {
+    // id_pickup: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   autoIncrement: true,
+    //   primaryKey: true,
+    // },
+    productstoreid: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "productstore",
-        key: "id_productstore",
+        key: "id",
       }
     },
     name: {

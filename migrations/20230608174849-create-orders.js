@@ -3,7 +3,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Orders', {
-      id_order: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
         references: {
           model: "Productstores",
-          key: "id_productstore",
+          key: "id",
         },
         onDelete: "cascade",
         onUpdate: "cascade",
@@ -24,7 +24,7 @@ module.exports = {
         allowNull: false,
         references: {
           model: "Users",
-          key: "id_user", 
+          key: "id", 
         },
         onDelete: "cascade",
         onUpdate: "cascade",

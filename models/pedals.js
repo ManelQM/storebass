@@ -11,24 +11,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       pedals.belongsTo(models.productstore, {
-        foreignKey: "id_productstore",
+        foreignKey: "productstoreid",
        }); 
     }
   }
   pedals.init({
-    id_pedal: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-    },
+    // id_pedal: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   autoIncrement: true,
+    //   primaryKey: true,
+    // },
 
-    id_productstore: {
+    productstoreid: {
       type:DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "productstore",
-        key: "id_productstore",
+        key: "id",
       },
     },
     name: {

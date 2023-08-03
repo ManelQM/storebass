@@ -11,17 +11,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       role.hasMany(models.user, {
-        foreignKey: "id_role",
+        foreignKey: "roleid",
       })
     }
   }
   role.init({
-    id_role: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true
-    },
+    // roleid: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   autoIncrement: true,
+    //   primaryKey: true
+    // },
     name: {
       type: DataTypes.STRING 
     }
