@@ -2,10 +2,11 @@ const express = require("express");
 const db = require("./db/db");
 const router = require("./router");
 const app = express();
-const morgan = require("morgan");
-const logger = require("./config/winston");
 const cors = require("cors"); 
 const PORT = process.env.PORT || 3001; // PORT CONFIG
+
+// const morgan = require("morgan");
+// const logger = require("./config/winston");
 
 // CONFIG CORS OPTIONS
 app.use(cors(corsOptions));
@@ -24,7 +25,7 @@ var corsOptions = {
 };
 
 //MIDDLEWARE
-app.use(morgan("combined", { stream: logger.stream}));
+// app.use(morgan("combined", { stream: logger.stream}));
 
 
 

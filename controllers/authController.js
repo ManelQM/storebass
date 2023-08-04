@@ -1,9 +1,11 @@
 // const {models,user} = require("../models/index");
-const {user} = require("../models/user");
-const { Sequelize, Op } = require("sequelize");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken"); 
-const authConfig = require("../config/auth");
+// const {user} = require("../models/user");
+// const { Sequelize, Op } = require("sequelize");
+// const bcrypt = require("bcrypt");
+// const jwt = require("jsonwebtoken"); 
+// const authConfig = require("../config/auth");
+
+const {b}
 
 
 const AuthController = {}; 
