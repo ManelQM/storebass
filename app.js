@@ -1,14 +1,20 @@
 const express = require("express");
-const morgan = require("morgan");
-const logger = require("./config/winston");
 const db = require("./db/db");
 const router = require("./router");
-const cors = require("cors"); 
-
 const app = express();
+const morgan = require("morgan");
+const logger = require("./config/winston");
+const cors = require("cors"); 
 const PORT = process.env.PORT || 3001; // PORT CONFIG
 
 // CONFIG CORS OPTIONS
+app.use(cors(corsOptions));
+app.use(express.json());
+
+// ROUTES
+app.use(router);
+
+// CONFIG CORS OPTIONS 
 
 var corsOptions = {
   origin: "*",
@@ -19,11 +25,6 @@ var corsOptions = {
 
 //MIDDLEWARE
 app.use(morgan("combined", { stream: logger.stream}));
-app.use(express.json());
-app.use(cors(corsOptions));
-
-app.get("/", (req, res) => {res.send("Willkommen aus Express")})
-app.use(router);
 
 
 

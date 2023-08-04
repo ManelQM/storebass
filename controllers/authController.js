@@ -1,5 +1,6 @@
-const {User} = require("../models/user");
-
+// const {models,user} = require("../models/index");
+const {user} = require("../models/user");
+const { Sequelize, Op } = require("sequelize");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken"); 
 const authConfig = require("../config/auth");
@@ -10,9 +11,9 @@ const AuthController = {};
 // LOGIN 
 AuthController.login = (req, res) => {
     let { email, password } = req.body; 
-   console.log("arrrgggggggggg", User)
+   console.log("arrrgggggggggg", user)
     //Search User  
-    User.findOne({where: {email: email }
+   models.user.findOne({where: {email: email }
     }).then(user => {
         if (!user) {
             res.status(404).json({msg : "User not found"})
@@ -44,7 +45,7 @@ AuthController.register = (req, res)=> {
 
     //CREAR USUARIO
 
-    User.create({
+    user.create({
         name: req.body.name,
         email: req.body.email,
         password: password
