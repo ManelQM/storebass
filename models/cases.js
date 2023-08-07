@@ -3,19 +3,19 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class cases extends Model {
+  class Cases extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      cases.belongsTo(models.productstore, {
+      Cases.belongsTo(models.Productstore, {
         foreignKey: "productstoreid",
        });
     }
   }
-  cases.init({
+  Cases.init({
     // id_case: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "productstore",
+        model: "Productstore",
         key: "id",
       },
     },
@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'cases',
+    modelName: 'Cases',
   });
-  return cases;
+  return Cases;
 };
