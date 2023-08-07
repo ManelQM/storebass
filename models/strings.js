@@ -3,20 +3,20 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class strings extends Model {
+  class Strings extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      strings.belongsTo(models.productstore, {
+      Strings.belongsTo(models.Productstore, {
         foreignKey: "productstoreid",
        });
     }
   }
-  strings.init({
-    // id_strings: {
+  Strings.init({
+    // id_Strings: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
     //   autoIncrement: true,
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "productstore",
+        model: "Productstore",
         key: "id",
       }
     },
@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'strings',
+    modelName: 'Strings',
   });
-  return strings;
+  return Strings;
 };
