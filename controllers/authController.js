@@ -6,12 +6,12 @@ const jsonwebtoken = require("jsonwebtoken");
 const authConfig = require("../config/auth"); 
 
 const authLoginController = async (req,res) => {
-  // console.log (res, "hola!")
+
   const {email,password} = req.body; 
   
   try {
     const result = await models.User.findOne({where:{email: email}}); 
-    // console.log(User)
+
     if (!result) {
       res.status(401).json({message: "Email or password doesnt match"});
       return;
