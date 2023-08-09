@@ -1,9 +1,50 @@
 const models = require("../models/index");
-const {bcryptCompare} = require("../services/authServices"); 
-require("dotenv").config();
+const {
+  assertEmailIsValidService,
+  assertValidPasswordService,
+  assertEmailIsUniqueService,
+  createUserService,
+  bcryptCompare} = require("../services/authServices"); 
 
 const jsonwebtoken = require("jsonwebtoken"); 
 const authConfig = require("../config/auth"); 
+
+const authRegisterController = async (req,res) => {
+  const body = req.body;
+
+  //VALIDATE PASSWORD SERVICE
+  try{
+    assertValidPasswordService(body.password);
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({message: "Invalid Password"});
+    return;
+  }
+  //VALIDATE EMAIL SERVICE
+  try {
+    assertEmailIsValidService(body.mail);
+  }catch (error) {
+    console.error(error);
+    res.status(400).json({message:"Not valid Email"});
+    return;
+  }
+  //EMAIL IS UNIQUE SERVICE
+  try{
+    assertEmailIsUniqueService(body.mail);
+  }catch (error) {
+    console.error(error);
+    res.status(400).json({message:"Email already take it"});
+    return;
+  }
+  //CREATE USER REGISTRATION
+  try {
+    const RegisterUser = await createUserService(body);
+    res.status(201).json(RegisterUser)
+  }catch (error) {
+    console.error(error)
+    res.status(500).json({message: error.message},{message: "Error creating user :____( "})
+  }
+}
 
 const authLoginController = async (req,res) => {
 
@@ -41,5 +82,6 @@ const authLoginController = async (req,res) => {
   
   module.exports = {
     authLoginController,
+    authRegisterController,
  
   };
