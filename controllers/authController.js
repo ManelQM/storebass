@@ -12,7 +12,7 @@ const authConfig = require("../config/auth");
 const authRegisterController = async (req,res) => {
   const body = req.body;
 
-  //VALIDATE PASSWORD SERVICE
+  //ASSERT VALID PASSWORD "AUTHSERVICE"
   try{
     assertValidPasswordService(body.password);
   } catch (error) {
@@ -20,7 +20,7 @@ const authRegisterController = async (req,res) => {
     res.status(400).json({message: "Invalid Password"});
     return;
   }
-  //VALIDATE EMAIL SERVICE
+  //ASSERT VALID EMAIL "AUTHSERVICE"
   try {
     assertEmailIsValidService(body.mail);
   }catch (error) {
@@ -28,7 +28,7 @@ const authRegisterController = async (req,res) => {
     res.status(400).json({message:"Not valid Email"});
     return;
   }
-  //EMAIL IS UNIQUE SERVICE
+  //ASSERT EMAIL IS UNIQUE "AUTHSERVICE"
   try{
     assertEmailIsUniqueService(body.mail);
   }catch (error) {
@@ -36,7 +36,7 @@ const authRegisterController = async (req,res) => {
     res.status(400).json({message:"Email already take it"});
     return;
   }
-  //CREATE USER REGISTRATION
+  //CREATE USER SERVICE 
   try {
     const RegisterUser = await createUserService(body);
     res.status(201).json(RegisterUser)
