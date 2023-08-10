@@ -36,7 +36,7 @@ const authRegisterController = async (req,res) => {
     res.status(400).json({message:"Email already take it"});
     return;
   }
-  //CREATE USER SERVICE 
+  //CREATE USER "AUTHSERVICE"
   try {
     const RegisterUser = await createUserService(body);
     res.status(201).json(RegisterUser)
