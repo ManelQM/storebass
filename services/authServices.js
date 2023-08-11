@@ -3,7 +3,6 @@ const bcrypt = require("bcrypt");
 const auth = require("../config/auth");
 const jsonwebtoken = require("jsonwebtoken");
 
-
 // Service to assert if the structure of the password is ok
 const assertValidPasswordService = (pass) => {
   if (pass.length < 8) {
@@ -39,7 +38,6 @@ const assertEmailIsUniqueService = async (email) => {
     where: { email: email },
   });
   if (user && user.deleted == false) {
-  
     throw new Error("Email is already registered");
   }
 };
@@ -68,7 +66,7 @@ const createUserService = async (userBody) => {
     password: hashedPassword,
     name: userBody.name,
     surname: userBody.surname,
-    address: userBody.nickname,
+    address: userBody.address,
     // idrole: 2,
   });
   return user;
@@ -91,25 +89,24 @@ const bcryptCompare = async (password, hashedPassword) => {
 // }
 
 const adminPrivileges = (role) => (req, res, next) => {
-  console.log ("JWT:", req.headers.authorization);
-  // console.log ("role:", role); 
+  console.log("JWT:", req.headers.authorization);
+  // console.log ("role:", role);
   // console.log ("req:", req );
-if (req.auth && req.auth?.role === role) { 
-
-  // if (req.user?.role === role) {
+  if (req.auth && req.auth?.role === role) {
+    // if (req.user?.role === role) {
     next();
-    console.log(req.auth, "hola")
+    console.log(req.auth, "hola");
   } else {
     res.status(403).json({ message: "You dont have this privilege, sorry :(" });
   }
 };
 
-const isValidUser = (email) => async (req,res,next) => {
+const isValidUser = (email) => async (req, res, next) => {
   email = req.auth.email;
-  if(req.auth?.email === email) {
+  if (req.auth?.email === email) {
     next();
   } else {
-    res.status(403).json ({ message: "You dont have this privilege, sorry :(" });
+    res.status(403).json({ message: "You dont have this privilege, sorry :(" });
   }
 };
 module.exports = {
@@ -119,6 +116,6 @@ module.exports = {
   encryptPasswordService,
   createUserService,
   bcryptCompare,
-  adminPrivileges, 
-  isValidUser
+  adminPrivileges,
+  isValidUser,
 };

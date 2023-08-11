@@ -15,6 +15,7 @@ const authRegisterController = async (req,res) => {
   //ASSERT VALID PASSWORD "AUTHSERVICE"
   try{
     assertValidPasswordService(body.password);
+    console.log(body.password, "Esto es lo que hay en el password")
   } catch (error) {
     console.error(error);
     res.status(400).json({message: "Invalid Password"});
@@ -22,7 +23,9 @@ const authRegisterController = async (req,res) => {
   }
   //ASSERT VALID EMAIL "AUTHSERVICE"
   try {
-    assertEmailIsValidService(body.mail);
+    console.log(body.email, "Esto es lo que hay en el EMAIL")
+    assertEmailIsValidService(body.email);
+    
   }catch (error) {
     console.error(error);
     res.status(400).json({message:"Not valid Email"});
@@ -30,7 +33,7 @@ const authRegisterController = async (req,res) => {
   }
   //ASSERT EMAIL IS UNIQUE "AUTHSERVICE"
   try{
-    assertEmailIsUniqueService(body.mail);
+    assertEmailIsUniqueService(body.email);
   }catch (error) {
     console.error(error);
     res.status(400).json({message:"Email already take it"});
