@@ -21,13 +21,13 @@ const authRegisterController = async (req,res) => {
     return;
   }
   //ASSERT VALID EMAIL "AUTHSERVICE"
-  try {
-    assertEmailIsValidService(body.mail);
-  }catch (error) {
-    console.error(error);
-    res.status(400).json({message:"Not valid Email"});
-    return;
-  }
+  // try {
+  //   assertEmailIsValidService(body.mail);
+  // }catch (error) {
+  //   console.error(error);
+  //   res.status(400).json({message:"Not valid Email"});
+  //   return;
+  // }
   //ASSERT EMAIL IS UNIQUE "AUTHSERVICE"
   try{
     assertEmailIsUniqueService(body.mail);

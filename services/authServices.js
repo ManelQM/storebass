@@ -24,14 +24,14 @@ const assertValidPasswordService = (pass) => {
 };
 
 // Service to assert if the email structure is valid
-const assertEmailIsValidService = (email) => {
-  const emailRegex =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  const isValid = email.match(emailRegex);
-  if (!isValid) {
-    throw new Error("Email is invalid");
-  }
-};
+// const assertEmailIsValidService = (email) => {
+//   const emailRegex =
+//     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   const isValid = email.match(emailRegex);
+//   if (!isValid) {
+//     throw new Error("Email is invalid");
+//   }
+// };
 
 // Service to assert if the email is already registered
 const assertEmailIsUniqueService = async (email) => {
@@ -64,12 +64,12 @@ const createUserService = async (userBody) => {
   // userBody.password = hash;
 
   const user = await models.User.create({
-    name: userBody.name,
-    surname: userBody.surname,
-    nickname: userBody.nickname,
     email: userBody.email,
     password: hashedPassword,
-    idrole: 2,
+    name: userBody.name,
+    surname: userBody.surname,
+    address: userBody.nickname,
+    // idrole: 2,
   });
   return user;
 };
@@ -114,7 +114,7 @@ const isValidUser = (email) => async (req,res,next) => {
 };
 module.exports = {
   assertValidPasswordService,
-  assertEmailIsValidService,
+  // assertEmailIsValidService,
   assertEmailIsUniqueService,
   encryptPasswordService,
   createUserService,
