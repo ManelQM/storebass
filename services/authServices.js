@@ -4,20 +4,20 @@ const auth = require("../config/auth");
 const jsonwebtoken = require("jsonwebtoken");
 
 // Service to assert if the structure of the password is ok
-const assertValidPasswordService = (pass) => {
-  if (pass.length < 8) {
+const assertValidPasswordService = (password) => {
+  if (password.length < 8) {
     throw new Error("Password must be at least 8 characters long");
   }
 
-  if (!pass.match(/[a-z]/)) {
+  if (!password.match(/[a-z]/)) {
     throw new Error("Password must contain at least one lower case letter");
   }
 
-  if (!pass.match(/[A-Z]/)) {
+  if (!password.match(/[A-Z]/)) {
     throw new Error("Password must contain at least one upper case letter");
   }
 
-  if (!pass.match(/[0-9]/)) {
+  if (!password.match(/[0-9]/)) {
     throw new Error("Password must contain at least one number");
   }
 };
