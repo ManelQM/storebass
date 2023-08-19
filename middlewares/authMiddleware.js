@@ -22,6 +22,20 @@ const autheBearerMiddleware = async (req,res,next) => {
     }
 };
 
+// VERIFY ACCESS TO SPECIFIC RESTRICTED AREAS BASED ON THE USER ROLE
+
+const isValidRole = (role) => async(req,res,next) => {
+    try {
+        if (req.auth?.role === role) {
+            next();
+        } else {
+            res.status(403).json({message: "You are not the admin, access denied"});
+        }
+    } catch (error) {
+        res.status(500).json({message: "Role error"})
+    }
+}
+
 
 
 
@@ -29,4 +43,5 @@ const autheBearerMiddleware = async (req,res,next) => {
 
 module.exports = {
     autheBearerMiddleware,
+    isValidRole,
 }
