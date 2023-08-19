@@ -34,7 +34,7 @@ const isValidRole = (role) => async(req,res,next) => {
     } catch (error) {
         res.status(500).json({message: "Role error"})
     }
-}
+};
 
 
 
