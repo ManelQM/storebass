@@ -1,7 +1,8 @@
-const {User} = require("../models/user"); 
-const bcrypt = require("bcrypt"); 
+const {User} = require("../models/index"); 
+const {encryptPasswordService} = require ("../services/authServices");  
+require("dotenv").config();
 
-const userController = {}; 
+
 
 
  
