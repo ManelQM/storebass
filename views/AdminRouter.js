@@ -6,6 +6,6 @@ const {
 } = require("../controllers/adminController");
 
 
-router.get("admin/allusers",adminController.bring)
+router.get("/allusers",bringAllUsers);
 
 module.exports = router 
