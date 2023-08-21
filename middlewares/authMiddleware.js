@@ -22,9 +22,11 @@ const autheBearerMiddleware = async (req, res, next) => {
 
 // VERIFY ACCESS TO SPECIFIC RESTRICTED AREAS BASED ON THE USER ROLE
 
-const isValidRole = (role) => async (req, res, next) => {
+const isValidRole = (Role) => async (req, res, next) => {
+  
   try {
-    if (req.auth?.role === role) {
+    console.log(req,"satana")
+    if (req.auth?.Role === Role)  {
       next();
     } else {
       res.status(403).json({ message: "You are not the admin, access denied" });
