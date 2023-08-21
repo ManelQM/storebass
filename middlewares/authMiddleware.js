@@ -5,13 +5,14 @@ require("dotenv").config();
 
 const autheBearerMiddleware = async (req, res, next) => {
   const { authorization } = req.headers;
+  // console.log(req.headers);
   try {
     const [strategy, jwt] = authorization.split(" ");
     if (strategy.toLowerCase() !== "bearer") {
       throw new Error("Invalid strategy");
     }
 
-    const payload = jsonwebtoken.verify(jwt, process.env, JWT_SECRET);
+    const payload = jsonwebtoken.verify(jwt, process.env.AUTH_SECRET);
     req.auth = payload;
     next();
   } catch (error) {
@@ -29,7 +30,7 @@ const isValidRole = (role) => async (req, res, next) => {
     if (req.auth?.role === role)  {
       next();
     } else {
-      console.log(role,"satana");
+      console.log(req.auth,"satana");
       res.status(403).json({ message: "You are not the admin, access denied" });
     }
   } catch (error) {
