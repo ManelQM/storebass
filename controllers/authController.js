@@ -74,11 +74,12 @@ const authLoginController = async (req, res) => {
     if (responseBcryptCompare == false) {
       res.status(400).json({ message: "Password or Email are incorrect" });
     } else {
-      const secret = process.env.ACCESS_TOKEN_SECRET;
+      const secret = process.env.AUTH_SECRET;
 
       let token = jsonwebtoken.sign({ user: result }, authConfig.secret, {
         expiresIn: authConfig.expires,
       });
+      
       res.status(200).json({
         message: "Login with success",
         jwt: token,
