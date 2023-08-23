@@ -1,4 +1,4 @@
-const models = require("../models/user");
+const models = require("../models/index");
 require("dotenv").config();
 
 const bringAllUsers = async (req, res) => {
