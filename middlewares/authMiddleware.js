@@ -5,18 +5,20 @@ require("dotenv").config();
 
 const autheBearerMiddleware = async (req, res, next) => {
   const { authorization } = req.headers;
+  const [strategy, jwt] = authorization.split(" ");
   // console.log(req.headers);
   try {
-    const [strategy, jwt] = authorization.split(" ");
     if (strategy.toLowerCase() !== "bearer") {
       throw new Error("Invalid strategy");
     }
-    // console.log(res, "respuesta")
+    // console.log(res, "JWT")
     
-    const payload = jsonwebtoken.verify(jwt, process.env,AUTH_SECRET);
+    const payload = jsonwebtoken.verify(jwt, process.env.AUTH_SECRET);
+    // console.log(payload)
     req.auth = payload;
-    
+   
     next();
+   
   } catch (error) {
     res.status(401).json({ message: "Not authentification. Please log" });
     return;

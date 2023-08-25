@@ -1,5 +1,5 @@
 module.exports = {
-    secret: process.env.AUTH_SECRET || "codeofdoom",
+    secret: process.env.AUTH_SECRET || "hola",
     expires: process.env.AUTH_EXPIRES || "24h",
     rounds: process.env.AUTH_ROUNDS || 10
 }
