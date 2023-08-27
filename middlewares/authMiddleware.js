@@ -1,4 +1,5 @@
 const jsonwebtoken = require("jsonwebtoken");
+
 require("dotenv").config();
 
 // AUTHENTIFICATION
@@ -29,7 +30,7 @@ const autheBearerMiddleware = async (req, res, next) => {
 const isValidRole = (role) => async (req, res, next) => {
   console.log(req, "esto es la request");
   try {
-    if (req.auth?.role === role) {
+    if (req.auth?.user.roleid === role) {
       next();
     } else {
       res.status(403).json({ message: "You are not the admin, access denied" });
