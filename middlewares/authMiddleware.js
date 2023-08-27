@@ -27,6 +27,7 @@ const autheBearerMiddleware = async (req, res, next) => {
 // VERIFY ACCESS TO SPECIFIC RESTRICTED AREAS BASED ON THE USER ROLE
 
 const isValidRole = (role) => async (req, res, next) => {
+  console.log(req, "esto es la request");
   try {
     if (req.auth?.role === role) {
       next();

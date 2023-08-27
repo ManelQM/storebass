@@ -6,6 +6,6 @@ const {
 } = require("../controllers/adminController");
 
 
-router.get("/allusers",autheBearerMiddleware,isValidRole(),bringAllUsers);
+router.get("/allusers",autheBearerMiddleware,isValidRole(1),bringAllUsers);
 
 module.exports = router 
