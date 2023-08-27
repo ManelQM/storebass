@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { autheBearerMiddleware ,isValidRole, isValidUser } = require("../middlewares/authMiddleware");
 const {
-    bringAllUsers,bringAllStore
+    bringAllUsers,
+    bringAllStore
 } = require("../controllers/adminController");
 
 
