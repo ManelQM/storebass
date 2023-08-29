@@ -27,8 +27,8 @@ const bringAllStore = async (req, res) => {
   }
 };
 
-const deleteUser = async (req,res) => {
-  try{
+const deleteUser = async (req, res) => {
+  try {
     const email = req.body.email;
     const deleteThisUser = await User.findOne({
       where: {
@@ -36,8 +36,8 @@ const deleteUser = async (req,res) => {
       },
     });
     if (deleteThisUser.roleid === 1) {
-      res.json ({
-        message: "Untouchable Admin"
+      res.json({
+        message: "Untouchable Admin",
       });
     } else {
       User.destroy({
@@ -45,9 +45,10 @@ const deleteUser = async (req,res) => {
           email: email,
         },
       });
-      res,json({
-        message: "User deleted from the database"
-      });
+      res,
+        json({
+          message: "User deleted from the database",
+        });
     }
   } catch (error) {
     console.error(error);
