@@ -5,11 +5,7 @@ require("dotenv").config();
 
 const bringAllUsers = async (req, res) => {
   try {
-    const users = await User.findAll({
-      // where: {
-      //   roleid: 1,
-      // },
-    });
+    const users = await User.findAll({});
     res.json({ message: "Users list", users });
   } catch (error) {
     console.error(error);
@@ -45,8 +41,7 @@ const deleteUser = async (req, res) => {
           email: email,
         },
       });
-      res,
-        json({
+      res.json({
           message: "User deleted from the database",
         });
     }
