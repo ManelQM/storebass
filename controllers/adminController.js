@@ -70,9 +70,23 @@ const deleteProduct = async (req,res) => {
   }
 };
 
+const addProductStore = async (req,res) => {
+  try{
+    const product = req.body;
+    const newProduct = await Productstore.create({
+      name: product.name,
+      category: product.category,
+    });
+    res.json({message: "Product added with success", newProduct});
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 module.exports = {
   bringAllUsers,
   bringAllStore,
   deleteUser,
-  deleteProduct
+  deleteProduct,
+  addProductStore
 };

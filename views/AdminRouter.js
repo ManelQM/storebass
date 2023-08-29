@@ -6,12 +6,15 @@ const {
     bringAllStore,
     deleteUser,
     deleteProduct,
+    addProduct,
+    addProductStore,
 } = require("../controllers/adminController");
 
 
 router.get("/allusers",autheBearerMiddleware,isValidRole(1),bringAllUsers);
 router.get("/allstore",autheBearerMiddleware,isValidRole(1),bringAllStore);
 router.delete("/deleteuser",autheBearerMiddleware,isValidRole(1),deleteUser);
-router.delete("/deleteproduct",autheBearerMiddleware,isValidRole(1),deleteProduct)
+router.delete("/deleteproduct",autheBearerMiddleware,isValidRole(1),deleteProduct);
+router.post("/addproduct",autheBearerMiddleware,isValidRole(1),addProductStore);
 
 module.exports = router 
