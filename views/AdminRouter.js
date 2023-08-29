@@ -6,7 +6,6 @@ const {
     bringAllStore,
     deleteUser,
     deleteProduct,
-    addProduct,
     addProductStore,
 } = require("../controllers/adminController");
 

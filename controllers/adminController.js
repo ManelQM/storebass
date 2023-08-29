@@ -42,42 +42,44 @@ const deleteUser = async (req, res) => {
         },
       });
       res.json({
-          message: "User deleted from the database",
-        });
+        message: "User deleted from the database",
+      });
     }
   } catch (error) {
     console.error(error);
   }
 };
 
-const deleteProduct = async (req,res) => {
+const deleteProduct = async (req, res) => {
   try {
-    const productName = req.body.name; 
-    const deleteThisProduct = await Productstore.findOne ({
+    const productName = req.body.name;
+    const deleteThisProduct = await Productstore.findOne({
       where: {
-        name : productName,
+        name: productName,
       },
-    }); 
+    });
     if (!deleteThisProduct) {
-      return res.status(404).json({message: "Product not found in the store"});
+      return res
+        .status(404)
+        .json({ message: "Product not found in the store" });
     } else {
       await deleteThisProduct.destroy();
-      res.status(200).json({ message: "Product deleted with success"});
+      res.status(200).json({ message: "Product deleted with success" });
     }
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: "Server Error"})
+    return res.status(500).json({ error: "Server Error" });
   }
 };
 
-const addProductStore = async (req,res) => {
-  try{
+const addProductStore = async (req, res) => {
+  try {
     const product = req.body;
     const newProduct = await Productstore.create({
       name: product.name,
       category: product.category,
     });
-    res.json({message: "Product added with success", newProduct});
+    res.json({ message: "Product added with success", newProduct });
   } catch (error) {
     console.error(error);
   }
@@ -88,5 +90,5 @@ module.exports = {
   bringAllStore,
   deleteUser,
   deleteProduct,
-  addProductStore
+  addProductStore,
 };
