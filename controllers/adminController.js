@@ -20,9 +20,9 @@ const bringAllUsers = async (req, res) => {
 
 const bringAllStore = async (req, res) => {
   try {
-    const store = await Productstore.findAll({
+    const pstore = await Productstore.findAll({
     });
-    res.json({message: "Store list of products", store});
+    res.json({message: "Store list of products", pstore});
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error : "Server Error"});
