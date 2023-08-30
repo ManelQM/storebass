@@ -47,6 +47,7 @@ const deleteUser = async (req, res) => {
     }
   } catch (error) {
     console.error(error);
+    return res.status(500).json({ error: "Server Error" });
   }
 };
 
@@ -82,6 +83,7 @@ const addProductStore = async (req, res) => {
     res.json({ message: "Product added with success", newProduct });
   } catch (error) {
     console.error(error);
+    return res.status(500).json({ error: "Cant add product, server error" });
   }
 };
 
