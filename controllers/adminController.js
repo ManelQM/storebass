@@ -23,6 +23,20 @@ const bringAllStore = async (req, res) => {
   }
 };
 
+const addProductStore = async (req, res) => {
+  try {
+    const product = req.body;
+    const newProduct = await Productstore.create({
+      name: product.name,
+      category: product.category,
+    });
+    res.json({ message: "Product added with success", newProduct });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Cant add product, server error" });
+  }
+};
+
 const deleteUser = async (req, res) => {
   try {
     const email = req.body.email;
@@ -73,24 +87,12 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-const addProductStore = async (req, res) => {
-  try {
-    const product = req.body;
-    const newProduct = await Productstore.create({
-      name: product.name,
-      category: product.category,
-    });
-    res.json({ message: "Product added with success", newProduct });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Cant add product, server error" });
-  }
-};
+
 
 module.exports = {
   bringAllUsers,
   bringAllStore,
+  addProductStore,
   deleteUser,
   deleteProduct,
-  addProductStore,
 };
