@@ -18,6 +18,27 @@ const getMyProfile = async (req, res) => {
   }
 };
 
+const updateMyProfile = async (req, res) => {
+  try {
+    const profile = req.body;
+    const editedProfile = await User.update(
+      {
+        name: profile.name,
+        surname: profile.surname,
+        address: profile.address,
+      },
+      {
+        where: { email: req.auth?.email },
+      }
+    );
+    res.json({message: "User has been updated", editedProfile});
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({ error: "Cant update the user profile"})
+  }
+};
+
 module.exports = {
   getMyProfile,
+  updateMyProfile,
 };

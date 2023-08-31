@@ -1,11 +1,16 @@
-const express = require("express"); 
+const express = require("express");
 const router = express.Router();
-const { autheBearerMiddleware,isValidUser } = require("../middlewares/authMiddleware");
+const {
+  autheBearerMiddleware,
+  isValidUser,
+} = require("../middlewares/authMiddleware");
 
-const { getMyProfile, } = require("../controllers/userController");
+const {
+  getMyProfile,
+  updateMyProfile,
+} = require("../controllers/userController");
 
+router.get("/myprofile", autheBearerMiddleware, isValidUser(), getMyProfile);
+router.post( "/updatemyprofile",autheBearerMiddleware,isValidUser(), updateMyProfile);
 
-router.get("/myprofile",autheBearerMiddleware,isValidUser(), getMyProfile);
-
-
-module.exports = router
+module.exports = router;
