@@ -8,7 +8,7 @@ const getMyProfile = async (req,res) => {
     try{
         const myProfile = await User.findOne({
             where: {
-                id: req.auth.id
+                id: req.auth.user.id
             }
         });
         res.json({message: "Profile Area", myProfile})

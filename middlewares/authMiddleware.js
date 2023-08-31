@@ -46,7 +46,7 @@ const isValidUser = (email) => async (req, res, next) => {
     if (req.auth?.email === email) {
       next();
     } else {
-      console.log(req.auth, "esto es el reqauth")
+      // console.log(req.auth, "esto es el reqauth")
 
       res.status(403).json({ message: "Not authorized as validUser" });
     }
