@@ -8,5 +8,4 @@ const { getMyProfile, } = require("../controllers/userController");
 router.get("/myprofile",autheBearerMiddleware,isValidUser(), getMyProfile);
 
 
-
 module.exports = router
