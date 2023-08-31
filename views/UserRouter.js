@@ -1,10 +1,12 @@
 const express = require("express"); 
 const router = express.Router();
+const { isValidUser } = require("../middlewares/authMiddleware");
 
-const userController = require("../controllers/userController"); 
+const { getMyProfile, } = require("../controllers/userController");
 
-// ADMIN ACCESS
-// router.get("/user/all", userController.getAll);
+
+router.get("/myprofile",isValidUser(), getMyProfile);
+
 
 
 module.exports = router

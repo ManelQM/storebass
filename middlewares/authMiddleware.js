@@ -43,7 +43,7 @@ const isValidRole = (role) => async (req, res, next) => {
 
 const isValidUser = (email) => async (req, res, next) => {
   try {
-    if (req.auth?.email === email) {
+    if (req.auth?.user.email === email) {
       next();
     } else {
       res.status(403).json({ message: "Not authorized as validUser" });
