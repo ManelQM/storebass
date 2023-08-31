@@ -20,8 +20,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init(
     {
-  
-
       roleid: {
         type: DataTypes.INTEGER,
         defaultValue: 2,

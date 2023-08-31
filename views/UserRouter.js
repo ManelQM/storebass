@@ -1,11 +1,11 @@
 const express = require("express"); 
 const router = express.Router();
-const { isValidUser } = require("../middlewares/authMiddleware");
+const { autheBearerMiddleware,isValidUser } = require("../middlewares/authMiddleware");
 
 const { getMyProfile, } = require("../controllers/userController");
 
 
-router.get("/myprofile",isValidUser(), getMyProfile);
+router.get("/myprofile",autheBearerMiddleware,isValidUser(), getMyProfile);
 
 
 
