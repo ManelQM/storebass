@@ -11,6 +11,6 @@ const {
 } = require("../controllers/userController");
 
 router.get("/myprofile", autheBearerMiddleware, isValidUser(), getMyProfile);
-router.post( "/updatemyprofile",autheBearerMiddleware,isValidUser(), updateMyProfile);
+router.patch( "/updatemyprofile",autheBearerMiddleware,isValidUser(), updateMyProfile);
 
 module.exports = router;

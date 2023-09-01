@@ -28,7 +28,7 @@ const updateMyProfile = async (req, res) => {
         address: profile.address,
       },
       {
-        where: { email: req.auth?.email },
+        where: { email: req.auth.user.email },
       }
     );
     res.json({message: "User has been updated", editedProfile});
