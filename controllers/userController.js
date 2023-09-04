@@ -1,8 +1,10 @@
 const models = require("../models/index");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const { User } = models;
 const { encryptPasswordService2 } = require("../services/authServices");
 require("dotenv").config();
+
+// PROFILE ACCES BY USER
 
 const getMyProfile = async (req, res) => {
   try {
@@ -19,6 +21,8 @@ const getMyProfile = async (req, res) => {
   }
 };
 
+// UPDATE USER PROFILE 
+
 const updateMyProfile = async (req, res) => {
   try {
     const profile = req.body;
@@ -32,47 +36,49 @@ const updateMyProfile = async (req, res) => {
         where: { email: req.auth.user.email },
       }
     );
-    res.json({message: "User has been updated", editedProfile});
+    res.json({ message: "User has been updated", editedProfile });
   } catch (error) {
-    console.error(error)
-    return res.status(500).json({ error: "Cant update the user profile"})
+    console.error(error);
+    return res.status(500).json({ error: "Cant update the user profile" });
   }
 };
 
-const editMyPassword = async (req,res) => {
-  try {
-    const {currentPassword, newPassword, email} = req.body;
-    console.log(req.body, "que pasa con tu body")
-    if (!currentPassword || !newPassword || !email) {
-      return res.status(400).json({ error: "Mandatory data missing"});
-    }
+// EDIT USER PASSWORD 
 
+const editMyPassword = async (req, res) => {
+  try {
+    const { currentpassword, newpassword, email } = req.body;
+    if (!currentpassword || !newpassword || !email) {
+      return res.status(400).json({ error: "Mandatory data missing" });
+    }
     const user = await User.findOne({
-      where: {email}
+      where: { email },
     });
     if (!user) {
-      return res.status(404).json({ error: "User not found"})
+      return res.status(404).json({ error: "User not found" });
     }
-    const isPasswordValid = await bcrypt.compare(currentPassword, user.password)
+    const isPasswordValid = await bcrypt.compare(
+      currentpassword,
+      user.password
+    );
     if (!isPasswordValid) {
-      return res.status(401).json({error: "Incorrect password"})
+      return res.status(401).json({ error: "Incorrect password" });
     }
-
-    const hashedPassword = await encryptPasswordService2(newPassword);
+    const hashedPassword = await encryptPasswordService2(newpassword);
     await User.update(
       {
-        password : hashedPassword,
-    },
-    {
-      where: {email},      
-    }
+        password: hashedPassword,
+      },
+      {
+        where: { email },
+      }
     );
     res.json({
-      message: "Password updated with success"
+      message: "Password updated with success",
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({error: "Error during the update"})
+    res.status(500).json({ error: "Error during the update" });
   }
 };
 
