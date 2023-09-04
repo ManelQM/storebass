@@ -52,6 +52,15 @@ const encryptPasswordService = async (password) => {
   return hashedPassword;
 };
 
+const encryptPasswordService2 = async (password) => {
+  try {
+    const hashedPassword = await bcrypt.hash(password, Number.parseInt(process.env.AUTH_ROUNDS));
+    return hashedPassword;
+  } catch (error) {
+    throw new Error('Error hashing password');
+  }
+};
+
 // Service to create a new user in the database
 const createUserService = async (userBody) => {
   // const hash = encryptPasswordService(userBody.password);
@@ -113,6 +122,7 @@ module.exports = {
   assertEmailIsValidService,
   assertEmailIsUniqueService,
   encryptPasswordService,
+  encryptPasswordService2,
   createUserService,
   bcryptCompare,
   adminPrivileges,

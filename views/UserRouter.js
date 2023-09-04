@@ -13,6 +13,6 @@ const {
 
 router.get("/myprofile", autheBearerMiddleware, isValidUser(), getMyProfile);
 router.patch( "/updatemyprofile",autheBearerMiddleware,isValidUser(), updateMyProfile);
-router.patch("editmypassword",autheBearerMiddleware,isValidUser(),editMyPassword); 
+router.patch("/editmypassword",autheBearerMiddleware,isValidUser(),editMyPassword); 
 
 module.exports = router;

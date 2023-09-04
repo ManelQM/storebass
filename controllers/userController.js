@@ -1,6 +1,7 @@
 const models = require("../models/index");
+const bcrypt = require('bcrypt');
 const { User } = models;
-const { encryptPasswordService, assertValidPasswordService } = require("../services/authServices");
+const { encryptPasswordService2 } = require("../services/authServices");
 require("dotenv").config();
 
 const getMyProfile = async (req, res) => {
@@ -41,7 +42,8 @@ const updateMyProfile = async (req, res) => {
 const editMyPassword = async (req,res) => {
   try {
     const {currentPassword, newPassword, email} = req.body;
-    if (!currentPassword || newPassword || email) {
+    console.log(req.body, "que pasa con tu body")
+    if (!currentPassword || !newPassword || !email) {
       return res.status(400).json({ error: "Mandatory data missing"});
     }
 
@@ -51,12 +53,12 @@ const editMyPassword = async (req,res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found"})
     }
-    const isPasswordValid = await assertValidPasswordService(currentPassword, user.password)
+    const isPasswordValid = await bcrypt.compare(currentPassword, user.password)
     if (!isPasswordValid) {
       return res.status(401).json({error: "Incorrect password"})
     }
 
-    const hashedPassword = await encryptPasswordService(newPassword);
+    const hashedPassword = await encryptPasswordService2(newPassword);
     await User.update(
       {
         password : hashedPassword,
