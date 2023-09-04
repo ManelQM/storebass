@@ -1,6 +1,6 @@
 const models = require("../models/index");
 const { User } = models;
-const { encryptPasswordService } = require("../services/authServices");
+const { encryptPasswordService, assertValidPasswordService } = require("../services/authServices");
 require("dotenv").config();
 
 const getMyProfile = async (req, res) => {
@@ -51,8 +51,29 @@ const editMyPassword = async (req,res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found"})
     }
+    const isPasswordValid = await assertValidPasswordService(currentPassword, user.password)
+    if (!isPasswordValid) {
+      return res.status(401).json({error: "Incorrect password"})
+    }
+
+    const hashedPassword = await encryptPasswordService(newPassword);
+    await User.update(
+      {
+        password : hashedPassword,
+    },
+    {
+      where: {email},      
+    }
+    );
+    res.json({
+      message: "Password updated with success"
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({error: "Error during the update"})
   }
-}
+};
+
 module.exports = {
   getMyProfile,
   updateMyProfile,
