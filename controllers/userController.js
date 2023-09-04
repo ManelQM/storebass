@@ -38,7 +38,23 @@ const updateMyProfile = async (req, res) => {
   }
 };
 
+const editMyPassword = async (req,res) => {
+  try {
+    const {currentPassword, newPassword, email} = req.body;
+    if (!currentPassword || newPassword || email) {
+      return res.status(400).json({ error: "Mandatory data missing"});
+    }
+
+    const user = await User.findOne({
+      where: {email}
+    });
+    if (!user) {
+      return res.status(404).json({ error: "User not found"})
+    }
+  }
+}
 module.exports = {
   getMyProfile,
   updateMyProfile,
+  editMyPassword,
 };

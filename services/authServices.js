@@ -95,7 +95,6 @@ const adminPrivileges = (role) => (req, res, next) => {
   if (req.auth && req.auth?.role === role) {
     // if (req.user?.role === role) {
     next();
-    console.log(req.auth, "hola");
   } else {
     res.status(403).json({ message: "You dont have this privilege, sorry :(" });
   }
