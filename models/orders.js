@@ -13,21 +13,22 @@ module.exports = (sequelize, DataTypes) => {
       Orders.belongsTo(models.User,{
         foreignKey: "userid",
        });
-      Orders.belongsTo(models.Productstore, {
-        foreignKey: "productstoreid",
+      Orders.belongsToMany(models.Productstore, {
+        through:"Orderproduct",
+        foreignKey: "orderid",
        });
     }
   }
   Orders.init({
  
-    productstoreid: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "Productstore",
-        key: "id", 
-      },
-    },
+    // productstoreid: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: "Productstore",
+    //     key: "id", 
+    //   },
+    // },
     
     userid: {
       type:DataTypes.INTEGER,

@@ -9,16 +9,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_productstore: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "Productstores",
-          key: "id",
-        },
-        onDelete: "cascade",
-        onUpdate: "cascade",
-      },
+      // id_productstore: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   references: {
+      //     model: "Productstores",
+      //     key: "id",
+      //   },
+      //   onDelete: "cascade",
+      //   onUpdate: "cascade",
+      // },
       id_user: {
         type: Sequelize.INTEGER,
         allowNull: false,

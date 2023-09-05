@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
         constraints: false,
         foreignKey: "userid",
       });
+      User.hasOne(models.Cart,{
+        constraints: false,
+        foreignKey: "userid",
+      });
     }
   }
   User.init(
