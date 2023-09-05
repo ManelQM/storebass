@@ -21,7 +21,7 @@ const getMyProfile = async (req, res) => {
   }
 };
 
-// UPDATE USER PROFILE 
+// UPDATE USER PROFILE
 
 const updateMyProfile = async (req, res) => {
   try {
@@ -43,7 +43,7 @@ const updateMyProfile = async (req, res) => {
   }
 };
 
-// EDIT USER PASSWORD 
+// EDIT USER PASSWORD
 
 const editMyPassword = async (req, res) => {
   try {
@@ -82,28 +82,30 @@ const editMyPassword = async (req, res) => {
   }
 };
 
-const editMyEmail = async (req,res) => {
-  try{
-    const {currentemail, newemail, password} = req.body; 
-    if(!currentemail || !newemail || password){
-      return res.status(400).json({error: "Mandatory data missing"})
+// EDIT USER EMAIL 
+
+const editMyEmail = async (req, res) => {
+  try {
+    const { currentemail, newemail, password } = req.body;
+    if (!currentemail || !newemail || !password) {
+      return res.status(400).json({ error: "Mandatory data missing" });
     }
     const user = await User.findOne({
-      where: { email: currentemail}
-    })
-    if(!user){
-      return res.status(404).json({error:"User not found"});
+      where: { email: currentemail },
+    });
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
     }
     const isPasswordValid = await bcrypt.compare(password, user.password);
-    if(!isPasswordValid) {
-      return res.status(401).json({error: "Incorrect password"})
+    if (!isPasswordValid) {
+      return res.status(401).json({ error: "Incorrect password" });
     }
     await User.update(
       {
         email: newemail,
       },
       {
-        where: {email:currentemail},
+        where: { email: currentemail },
       }
     );
     res.json({
@@ -111,9 +113,9 @@ const editMyEmail = async (req,res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({error: "Error during the update"})
+    res.status(500).json({ error: "Error during the update" });
   }
-}
+};
 
 module.exports = {
   getMyProfile,
