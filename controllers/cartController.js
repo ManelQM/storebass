@@ -1,30 +1,33 @@
 const models = require("../models/index");
-const {Cart ,Cartproduct, Productstore } = models; 
+
+const {Cart ,Cartproduct, Productstore,User } = models; 
 
 
 const addProductToCart = async (req,res) => {
+    console.log (req,"la req")
     try{
-        const {productId, quantity} = req.body;
-        const userId = req.auth.id;
-
+        const {productid, quantity} = req.body;
+        // console.log(req.body, "que pasa con tu body");
+        const userid = req.auth.userid;
+        console.log(req.auth.id, "Que me traes¿?¿?¿?¿?");
         let cart = await Cart.findOne({
             where: {
-                userId
+                userid
             },
         });
 
         if (!cart) {
-            cart = await Cart.create({userId});
+            cart = await Cart.create({userid});
         }
 
-        const productstore = await Productstore.findByPK(productId);
+        const productstore = await Productstore.findByPK(productid);
 
         if(!productstore || productstore.stock < quantity) {
             return res.status(400).json({error: "This product is sold out"})
         }
         const cartproduct = await Cartproduct.create({
-            cartId: cart.id,
-            productId,
+            cartid: cart.id,
+            productid,
             quantity,
         });
         

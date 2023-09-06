@@ -9,6 +9,6 @@ const {
     addProductToCart,
 }= require("../controllers/cartController");
 
-router.patch("/addproducttocart",autheBearerMiddleware,isValidUser(),addProductToCart);
+router.post("/addproducttocart",autheBearerMiddleware,isValidUser(),addProductToCart);
 
 module.exports = router; 
