@@ -7,6 +7,7 @@ const UserRouter = require("./views/UserRouter");
 const AuthRouter = require("./views/AuthRouter"); 
 const AdminRouter = require("./views/AdminRouter");
 const CartRouter = require("./views/CartRouter");
+
 router.use("/auth", AuthRouter); 
 router.use(autheBearerMiddleware);
 router.use("/user", UserRouter); 
