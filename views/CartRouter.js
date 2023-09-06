@@ -1,10 +1,14 @@
 const express = require("express"); 
 const router = express.Router();
 const {
-    autheBearerMiddelware,
-    isvalidUser,
+    autheBearerMiddleware,
+    isValidUser,
 } = require("../middlewares/authMiddleware");
 
 const {
-    getAllCarts,
+    addProductToCart,
 }= require("../controllers/cartController");
+
+router.patch("/addproducttocart",autheBearerMiddleware,isValidUser(),addProductToCart);
+
+module.exports = router; 
