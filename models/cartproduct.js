@@ -18,14 +18,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   Cartproduct.init(
     {
-      cartid: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: "Cart",
-          key: "id",
-        },
-      },
+      // Cartid: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      //   references: {
+      //     model: "Cart",
+      //     key: "id",
+      //   },
+      // },
       productstoreid: {
         type: DataTypes.INTEGER,
         allowNull: false,
