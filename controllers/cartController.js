@@ -24,7 +24,7 @@ const addProductToCart = async (req, res) => {
       return res.status(400).json({ error: "This product is sold out" });
     }
     const cartproduct = await Cartproduct.create({
-      cartid: cart.id,
+      Cartid: cart.id,
       productstoreid,
       quantity,
     });

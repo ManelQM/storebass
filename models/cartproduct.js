@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Cartproduct.init(
     {
-      // Cartid: {
+      // cartid: {
       //   type: DataTypes.INTEGER,
       //   allowNull: false,
       //   references: {

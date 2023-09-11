@@ -9,10 +9,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      quantity: {
-        type: Sequelize.INTEGER
-      },
       cartid: {
+        // allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: "Carts",
@@ -31,6 +29,11 @@ module.exports = {
         onUpdate: "cascade",
       },
      
+      quantity: {
+        type: Sequelize.INTEGER
+      },
+     
+   
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
