@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       Cart.belongsToMany(models.Productstore, {
         through: "CartProduct",
-        foreignKey:"cartid"
+        foreignKey:"CartId"
       });
     }
   }

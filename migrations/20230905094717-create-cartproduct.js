@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      cartid: {
+      CartId: {
         // allowNull: false,
         type: Sequelize.INTEGER,
         references: {

@@ -22,13 +22,13 @@ const addProductToCart = async (req, res) => {
     if (!productstore || productstore.stock < quantity) {
       // console.log(productstore, "PRODUCTSTOCK")
       return res.status(400).json({ error: "This product is sold out" });
-    }
+    } 
     const cartproduct = await Cartproduct.create({
-      Cartid: cart.id,
+      CartId:cart.id,
       productstoreid,
       quantity,
     });
-    console.log(cartproduct, "cart")
+    console.log(cartproduct, "Mi carro me lo robaron")
     // if (!cartproduct) {
     //   return res.status(404).json({ error: "Cart not found" });
     // }
