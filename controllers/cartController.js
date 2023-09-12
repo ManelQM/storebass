@@ -17,21 +17,19 @@ const addProductToCart = async (req, res) => {
     }
 
     const productstore = await Productstore.findByPk(productstoreid);
-    // console.log(productstore, "aquiiiiiiii");
 
     if (!productstore || productstore.stock < quantity) {
-      // console.log(productstore, "PRODUCTSTOCK")
       return res.status(400).json({ error: "This product is sold out" });
-    } 
+    }
     const cartproduct = await Cartproduct.create({
-      CartId:cart.id,
+      CartId: cart.id,
       productstoreid,
       quantity,
     });
-    console.log(cartproduct, "Mi carro me lo robaron")
-    // if (!cartproduct) {
-    //   return res.status(404).json({ error: "Cart not found" });
-    // }
+    console.log(cartproduct, "Mi carro me lo robaron");
+    if (!cartproduct) {
+      return res.status(404).json({ error: "Cart not found" });
+    }
     productstore.stock -= quantity;
     await productstore.save();
     res.status(201).json({ message: `${Productstore.name},Added to Cart` });
