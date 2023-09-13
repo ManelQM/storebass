@@ -24,8 +24,7 @@ var corsOptions = {
   optionsSuccessStatus: 204,
 };
 
-//MIDDLEWARE
-// app.use(morgan("combined", { stream: logger.stream}));
+
 
 
 
