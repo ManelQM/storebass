@@ -26,13 +26,13 @@ const addProductToCart = async (req, res) => {
       productstoreid,
       quantity,
     });
-    console.log(cartproduct, "Mi carro me lo robaron");
+   
     if (!cartproduct) {
       return res.status(404).json({ error: "Cart not found" });
     }
     productstore.stock -= quantity;
     await productstore.save();
-    res.status(201).json({ message: `${Productstore.name},Added to Cart` });
+    res.status(201).json({ message: `${productstore.name}, added to Cart` });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Cant add product" });
