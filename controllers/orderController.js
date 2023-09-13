@@ -5,17 +5,18 @@ const { Cart, Cartproduct, Productstore, User, Orders, Orderproduct} = models;
 const makeOrder = async (req,res) => {
     try{
         const userid = req.auth.user.id; 
-
+        
         const cart = await Cart.findOne({
+            
             where : {
                 userid,
             },
-            include: [Cartproduct],
+            include: [Cartproduct], 
         }); 
         if (!cart) {
             return res.status(400).json({error: "Cart not found"})
         }
-
+        
         const order = await Orders.create({
             userid,
             ships : req.body.ships,
