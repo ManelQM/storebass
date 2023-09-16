@@ -6,12 +6,16 @@ const makeOrder = async (req, res) => {
     const userid = req.auth.user.id;
 
     const cart = await Cart.findOne({
-        CartId:Cart.id,
+        // CartId:Cart.id,
       where: {
         userid,
       },
-      
-      include: [Cartproduct],
+     
+      include: {
+        model: Cartproduct,
+        as: "CartId",
+        // required: true
+      }
     });
 
     if (!cart) {
