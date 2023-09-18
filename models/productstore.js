@@ -16,42 +16,42 @@ module.exports = (sequelize, DataTypes) => {
         through: "Cartproduct",
         foreignKey: "productstoreid",
       });
-      Productstore.hasOne(models.Amps, {
-        foreignKey: "productstoreid",
-      });
-      Productstore.hasOne(models.Books, {
-        foreignKey: "productstoreid",
-      });
-      Productstore.hasOne(models.Cabinets, {
-        foreignKey: "productstoreid",
-      });
-      Productstore.hasOne(models.Cables, {
-        foreignKey: "productstoreid",
-      });
-      Productstore.hasOne(models.Cases, {
-        foreignKey: "productstoreid",
-      });
-      Productstore.hasOne(models.Newbasses, {
-        foreignKey: "productstoreid",
-      });
-      Productstore.hasOne(models.Pedals, {
-        foreignKey: "productstoreid",
-      });
-      Productstore.hasOne(models.Picks, {
-        foreignKey: "productstoreid",
-      });
-      Productstore.hasOne(models.Pickups, {
-        foreignKey: "productstoreid",
-      });
-      Productstore.hasOne(models.Straps, {
-        foreignKey: "productstoreid",
-      });
-      Productstore.hasOne(models.Strings, {
-        foreignKey: "productstoreid",
-      });
-      Productstore.hasOne(models.Vintagebasses, {
-        foreignKey: "productstoreid",
-      });
+      // Productstore.hasOne(models.Amps, {
+      //   foreignKey: "productstoreid",
+      // });
+      // Productstore.hasOne(models.Books, {
+      //   foreignKey: "productstoreid",
+      // });
+      // Productstore.hasOne(models.Cabinets, {
+      //   foreignKey: "productstoreid",
+      // });
+      // Productstore.hasOne(models.Cables, {
+      //   foreignKey: "productstoreid",
+      // });
+      // Productstore.hasOne(models.Cases, {
+      //   foreignKey: "productstoreid",
+      // });
+      // Productstore.hasOne(models.Newbasses, {
+      //   foreignKey: "productstoreid",
+      // });
+      // Productstore.hasOne(models.Pedals, {
+      //   foreignKey: "productstoreid",
+      // });
+      // Productstore.hasOne(models.Picks, {
+      //   foreignKey: "productstoreid",
+      // });
+      // Productstore.hasOne(models.Pickups, {
+      //   foreignKey: "productstoreid",
+      // });
+      // Productstore.hasOne(models.Straps, {
+      //   foreignKey: "productstoreid",
+      // });
+      // Productstore.hasOne(models.Strings, {
+      //   foreignKey: "productstoreid",
+      // });
+      // Productstore.hasOne(models.Vintagebasses, {
+      //   foreignKey: "productstoreid",
+      // });
     }
   }
   Productstore.init(

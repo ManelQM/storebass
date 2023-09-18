@@ -13,7 +13,7 @@ const makeOrder = async (req, res) => {
      
       include: {
         model: Cartproduct,
-        as: "CartId",
+        as: "id",
         // required: true
       }
     });
