@@ -5,20 +5,15 @@ const makeOrder = async (req, res) => {
   try {
     const userid = req.auth.user.id;
 
-    const cart = await Cart.findOne({
-        // CartId:Cart.id,
-      where: {
-        userid,
-      },
+    const cartprouct = await Cartproduct.findOne({
+        CartId:Cart.id,
+      // where: {
+      //   Cart
+      // },
      
-      include: {
-        model: Cartproduct,
-        as: "id",
-        // required: true
-      }
+      include: [Cart]
     });
-
-    if (!cart) {
+    if (!cartprouct) {
       return res.status(400).json({ error: "Cart not found" });
     }
 
@@ -27,21 +22,21 @@ const makeOrder = async (req, res) => {
       ships: req.body.ships,
     });
 
-    const productsInCart = cart.Cartproducts;
-    for (const productInCart of productsInCart) {
-      await Orderproduct.create({
-        orderid: order.id,
-        productstoreid: productInCart.productstoreid,
-        quantity: productInCart.quantity,
-      });
-      const productstore = await Productstore.findByPk(
-        productInCart.productstoreid
-      );
-      if (productstore) {
-        productstore.stock -= productInCart.quantity;
-        await productstore.save();
-      }
-    }
+    // const productsInCart = Cart.Cartproducts;
+    // for (const productInCart of productsInCart) {
+    //   await Orderproduct.create({
+    //     orderid: order.id,
+    //     productstoreid: productInCart.productstoreid,
+    //     quantity: productInCart.quantity,
+    //   });
+    //   const productstore = await Productstore.findByPk(
+    //     productInCart.productstoreid
+    //   );
+    //   if (productstore) {
+    //     productstore.stock -= productInCart.quantity;
+    //     await productstore.save();
+    //   }
+    // }
     res
       .status(201)
       .json({
