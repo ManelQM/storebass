@@ -49,6 +49,47 @@ const makeOrder = async (req, res) => {
   }
 };
 
+// const makeOrder = async (req, res) => {
+//   try {
+//     const userid = req.auth.user.id;
+
+//     const carts = await Cart.findOne({
+//       where: {
+//         userid,
+//       },
+//       include: Cartproduct, 
+//     });
+
+//     if (!carts) {
+//       return res.status(400).json({ error: "Cart not found" });
+//     }
+
+//     const order = await Orders.create({
+//       userid,
+//       ships: req.body.ships,
+//     });
+
+//     const productsInCart = await carts.getCartproducts(); 
+
+//     for (const productInCart of productsInCart) {
+//       await Orderproduct.create({
+//         orderid: order.id,
+//         productstoreid: productInCart.productstoreid,
+//         quantity: productInCart.quantity,
+//       });
+
+//     }
+
+//     res.status(201).json({
+//       message:
+//         "Your order has been sent to our headquarters and will be shipped in the next 24 hours. Thank you very much.",
+//     });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: "Can't make the order, please try again" });
+//   }
+// };
+
 module.exports = {
   makeOrder,
 };
