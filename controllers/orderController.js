@@ -22,7 +22,8 @@ const makeOrder = async (req, res) => {
       ships: req.body.ships,
     });
 
-    // const productsInCart = Cart.Cartproducts;
+    // const productsInCart = cart.getCartproducts(id 
+    // );
     // for (const productInCart of productsInCart) {
     //   await Orderproduct.create({
     //     orderid: order.id,
@@ -36,7 +37,7 @@ const makeOrder = async (req, res) => {
     //     productstore.stock -= productInCart.quantity;
     //     await productstore.save();
     //   }
-    // }
+    //  }
     res
       .status(201)
       .json({
