@@ -58,7 +58,6 @@ const authLoginController = async (req, res) => {
 
   try {
     const result = await models.User.findOne({ where: { email: email } });
-
     if (!result) {
       res.status(401).json({ message: "Email or password doesnt match" });
       return;
@@ -79,7 +78,7 @@ const authLoginController = async (req, res) => {
       let token = jsonwebtoken.sign({ user: result }, authConfig.secret, {
         expiresIn: authConfig.expires,
       });
-      
+
       res.status(200).json({
         message: "Login with success",
         jwt: token,

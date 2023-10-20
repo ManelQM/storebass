@@ -78,11 +78,12 @@ const createUserService = async (userBody) => {
   );
 
   const user = await models.User.create({
+    name: userBody.name,
     email: userBody.email,
     password: hashedPassword,
-    name: userBody.name,
     surname: userBody.surname,
     address: userBody.address,
+    postalCode: userBody.postalCode,
   });
   return user;
 };

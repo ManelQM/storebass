@@ -47,7 +47,7 @@ const deleteUser = async (req, res) => {
     });
     if (deleteThisUser.roleid === 1) {
       res.json({
-        message: "Untouchable Admin",
+        message: "You cant delete the Admin",
       });
     } else {
       User.destroy({
