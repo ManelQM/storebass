@@ -83,7 +83,7 @@ const createUserService = async (userBody) => {
     password: hashedPassword,
     surname: userBody.surname,
     address: userBody.address,
-    postalCode: userBody.postalCode,
+    postalcode: userBody.postalCode,
     city: userBody.city,
     country: userBody.country,
     movilephone: userBody.movilephone,
