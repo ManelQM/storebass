@@ -84,6 +84,9 @@ const createUserService = async (userBody) => {
     surname: userBody.surname,
     address: userBody.address,
     postalCode: userBody.postalCode,
+    city: userBody.city,
+    country: userBody.country,
+    movilephone: userBody.movilephone,
   });
   return user;
 };

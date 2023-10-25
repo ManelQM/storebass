@@ -25,6 +25,18 @@ module.exports = {
       address: {
         type: Sequelize.STRING,
       },
+      postalcode: {
+        type: Sequelize.STRING,
+      },
+      city: {
+        type: Sequelize.STRING,
+      },
+      country: {
+        type: Sequelize.STRING,
+      },
+      movilephone: {
+        type: Sequelize.STRING,
+      },
 
       roleid: {
         type: Sequelize.INTEGER,
