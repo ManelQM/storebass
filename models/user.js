@@ -50,32 +50,32 @@ module.exports = (sequelize, DataTypes) => {
 
       surname: {
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
 
       address: {
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
 
-      postacode: {
+      postalcode: {
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
 
       city: {
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
 
       country: {
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
 
       movilephone : {
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
     },
     {

@@ -24,10 +24,6 @@ var corsOptions = {
   optionsSuccessStatus: 204,
 };
 
-
-
-
-
 app.listen(PORT, () => {
   console.log(`Welcome to StoreBass at Port ${PORT}`);
 
@@ -38,13 +34,4 @@ app.listen(PORT, () => {
   });
 });
 
-// app.listen(PORT, () => {
-//     console.log (`YEEEEAHHH RUNNING ON PORT ${PORT}`);
-//     db.authenticate()
-//         .then(() => {
-//             console.log("DB Conection => SUCCESS")
-//         })
-//         .catch((error) => {
-//             console.log ("Error: " + error);
-//         });
-// })
+
