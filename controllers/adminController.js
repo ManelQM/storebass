@@ -29,6 +29,9 @@ const addProductStore = async (req, res) => {
     const newProduct = await Productstore.create({
       name: product.name,
       category: product.category,
+      stock: product.stock,
+      price: product.price,
+      description: product.description,
     });
     res.json({ message: "Product added with success", newProduct });
   } catch (error) {
