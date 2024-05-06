@@ -28,3 +28,24 @@ La base de datos responde a una estructura relacional que permite un control de 
 
 ![DB](./img/Model%20databases%20(1).png)
  
+## Lista de funcionalidades
+
+Dentro de la API tanto compradores(users) como los administradores(admin) de la información alojada en la base de datos podrán realizar diferentes consultas dependiendo de su rol dentro de la misma. 
+
+A continuación se presenta la lista de endpoints que permiten el acceso y control a distintas funcionalidades dependiendo de los datos que se desean obtener. 
+
+1) Como administrador(admin): 
+
+    . Listado de todos los usuarios
+    
+    . Listado de todos los productos
+    
+    . Añadir productos
+
+    . Eliminar productos
+
+    . Eliminar usuarios
+ 
+ 2) Como comprador(user): 
+
+    . 
