@@ -1,4 +1,4 @@
-# StoreBass 
+# StoreBass - Ecommerce - Backend - API REST - MVC
 
 ## Resumen 
 
