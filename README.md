@@ -64,4 +64,60 @@ A continuación se presenta la lista de endpoints que permiten el acceso y contr
 
     * Realizar un pedido 
 
-    
+
+# English version 
+
+# StoreBass 
+
+## Summary 
+
+StoreBass is a project where the fictitious idea of ​​creating an online business is presented, targeting and supplying products for those who play the electric bass. In other words, it's an e-commerce platform for products and musical instruments related to the practice of this profession/hobby.
+
+## Objectives 
+Create the necessary backend software infrastructure for an online commerce interface with a scalable and maintainable design, focusing on databases, server-side logic, application programming interface (APIs), architecture, and servers.
+
+To achieve this, we will implement the Model-View-Controller (MVC) pattern as a design pattern to offer the creation of software that takes into account not only the code architecture but also the necessary business logic, so that a company can operate aiming to develop its business model reliably, securely, and smoothly.
+
+## Technologies
+The technologies used for the development of the app's general functionality are as follows; 
+
+![JS](./img/logo-javascript-logo-png-transparentj.png) 
+![NODE](./img/nodejs-horizontal%20(1).svg)
+![EXPRESS](./img/expressjs-ar21%20(1)%20(1).svg)
+![JWT](./img/icons8-json-web-token-48.png)
+
+![SEQUELIZE](./img/sequelizejs-ar21%20(1)%20(1).svg)
+![MYSQL](./img/mysql-ar21%20(1)%20(1).svg)
+![DOCKER]( ./img/docker-ar21%20(1)%20(2).svg)
+
+
+## Database Architecture
+
+The database follows a relational structure that allows control of the queries and requests made by both the administrator and users (buyers). At the same time, as we have already pointed out, the structure takes its form taking into account the necessary business logic so that the fictitious owner of such a company can have a record of the necessary data for the fulfillment of its financial objectives such as registered users, stock, shopping carts, products, orders, etc.
+
+![DB](./img/Model%20databases%20(1).png)
+ 
+## List of functionalities
+
+Within the API, both buyers (users) and administrators (admin) of the information hosted in the database will be able to perform different queries depending on their role within it.
+
+Below is the list of endpoints that allow access and control of different functionalities depending on the data that is desired to be obtained.
+
+1) As an administrator (admin): 
+
+    - List of all users
+    - List of all products
+    - Add products
+    - Delete products
+    - Delete users
+ 
+ 2) As a buyer (user): 
+
+    - Sign up
+    - Login 
+    - Access user profile 
+    - Modify or update user profile data
+    - Modify or update password 
+    - Modify or update email
+    - Add products to the shopping cart
+    - Place an order
