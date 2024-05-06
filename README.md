@@ -36,16 +36,32 @@ A continuación se presenta la lista de endpoints que permiten el acceso y contr
 
 1) Como administrador(admin): 
 
-    . Listado de todos los usuarios
+    * Listado de todos los usuarios
     
-    . Listado de todos los productos
+    * Listado de todos los productos
     
-    . Añadir productos
+    * Añadir productos
 
-    . Eliminar productos
+    * Eliminar productos
 
-    . Eliminar usuarios
+    * Eliminar usuarios
  
  2) Como comprador(user): 
 
-    . 
+    * Registrarse
+
+    * Login 
+
+    * Acceder al perfil de usuario 
+
+    * Modificar o actualizar datos del perfil de usuario
+
+    * Modificar o actualizar password 
+
+    * Modificar o actualizar email
+    
+    * Añadir productos al carro de la compra
+
+    * Realizar un pedido 
+
+    
