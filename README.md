@@ -21,8 +21,49 @@ Las tecnologías usadas para el desarrollo de la funcionalidad general de la app
 ![MYSQL](./img/mysql-ar21%20(1)%20(1).svg)
 ![DOCKER]( ./img/docker-ar21%20(1)%20(2).svg)
 
+### JavaScript
 
-  ## Arquitectura BBDD
+JavaScript es un lenguaje de programación versátil y poderoso que se utiliza principalmente en el desarrollo web para agregar interactividad a las páginas. Es un lenguaje interpretado y de alto nivel que se ejecuta en el navegador del cliente, lo que permite crear aplicaciones web dinámicas y ricas en contenido. Además del desarrollo web, JavaScript también se utiliza en entornos de servidor (Node.js), aplicaciones de escritorio y desarrollo de aplicaciones móviles.
+
+### Node.js
+Node.js es un entorno de ejecución de JavaScript basado en el motor V8 de Google Chrome. Permite ejecutar código JavaScript en el lado del servidor, lo que lo hace ideal para el desarrollo de aplicaciones web y APIs. Algunas de sus características son:
+
+* JavaScript en el Servidor: Node.js permite utilizar JavaScript tanto en el lado del cliente como en el servidor, lo que simplifica el desarrollo de aplicaciones web completas con un solo lenguaje de programación.
+* Event-Driven y Asíncrono: Node.js utiliza un modelo de programación event-driven y asíncrono, lo que significa que puede manejar múltiples solicitudes concurrentes de manera eficiente sin bloquear el subproceso principal.
+* NPM (Node Package Manager): Node.js incluye NPM, un administrador de paquetes integrado que permite instalar, administrar y compartir paquetes de código reutilizable de manera sencilla.
+* Escalabilidad: Node.js es altamente escalable y puede utilizarse para construir aplicaciones de alta concurrencia y rendimiento, lo que lo hace popular en aplicaciones web en tiempo real y APIs RESTful.
+
+### Express
+Express es un marco de aplicación web de Node.js que simplifica el desarrollo de aplicaciones web y APIs. Algunas de sus características son:
+
+* Enrutamiento: Express proporciona un enrutador flexible que permite definir rutas para manejar solicitudes HTTP y responder con contenido dinámico.
+* Middleware: Permite la integración de middleware de terceros para agregar funcionalidades adicionales, como manejo de cookies, autenticación y registro de solicitudes.
+* Manejo de Solicitudes y Respuestas: Express facilita el manejo de solicitudes y respuestas HTTP mediante métodos y funciones integradas, lo que simplifica la creación de aplicaciones web y APIs robustas.
+
+### Sequelize
+Sequelize es un ORM (Object-Relational Mapping) para Node.js, que facilita la interacción con bases de datos relacionales como MySQL, PostgreSQL, SQLite y MSSQL. Proporciona una interfaz basada en promesas para realizar consultas y operaciones CRUD en la base de datos, lo que simplifica el desarrollo y la gestión de la capa de persistencia de una aplicación.
+
+### Bcrypt
+Bcrypt es una biblioteca que proporciona funciones de hashing de contraseñas seguras para proteger las contraseñas almacenadas en tu base de datos. Utiliza un algoritmo de hashing adaptativo que agrega una capa adicional de seguridad al generar un hash de la contraseña del usuario. Algunas de sus características principales son:
+
+* Seguridad Robusta: Bcrypt utiliza un algoritmo de hashing lento y deliberadamente intensivo en recursos, lo que lo hace altamente resistente a los ataques de fuerza bruta y de diccionario.
+* Salting Automático: Bcrypt incorpora automáticamente un valor de sal único en cada hash de contraseña que genera. Esto previene ataques y hace que cada hash sea único, incluso si las contraseñas son idénticas.
+* Facilidad de Uso: Bcrypt proporciona una interfaz simple para generar y verificar contraseñas hash, lo que facilita su integración en tus aplicaciones.
+* Escalabilidad: Bcrypt sigue siendo lo suficientemente rápido como para escalar en aplicaciones de producción sin afectar significativamente el rendimiento del servidor.
+
+### JWT (JSON Web Token)
+JSON Web Token (JWT) es un estándar abierto (RFC 7519) que define una forma compacta y autónoma para transmitir información de forma segura entre partes como un objeto JSON. Es especialmente útil en entornos de autenticación y autorización, ya que permite generar tokens firmados que pueden ser verificados y confiables, lo que garantiza la integridad de los datos transmitidos. En esta API, JWT se utiliza para la autenticación de usuarios, proporcionando una capa adicional de seguridad al proteger las rutas y recursos sensibles.
+
+
+### MySQL Workbench
+MySQL Workbench es una herramienta de diseño visual y administración de bases de datos MySQL. Permite diseñar esquemas de bases de datos, crear y modificar tablas, ejecutar consultas SQL, gestionar usuarios y privilegios, y realizar tareas de administración y mantenimiento de bases de datos. Es una herramienta imprescindible para desarrolladores y administradores de bases de datos que trabajan con MySQL.
+
+### Docker
+Docker es una plataforma de contenedores que permite empaquetar, distribuir y ejecutar aplicaciones en entornos aislados llamados contenedores. Proporciona una forma rápida y eficiente de implementar aplicaciones, ya que los contenedores son ligeros, portátiles y autocontenidos. Docker facilita la creación de entornos de desarrollo y producción consistentes, simplifica la administración de la infraestructura y mejora la escalabilidad y la seguridad de las aplicaciones.
+
+
+
+## Arquitectura BBDD
 
 La base de datos responde a una estructura relacional que permite un control de las consultas y peticiones realizadas tanto por el administrador y usuarios(compradores). A su vez, como ya hemos señalado la estructura toma su forma teniendo en cuenta la lógica de negocio necesaria para que el ficticio dueño de tal empresa pueda tener un registro de los datos necesarios para el cumplimiento de sus objetivos financieros tales como usuarios registrados, stock, carros de la compra, productos, pedidos, etc. 
 
@@ -90,6 +131,52 @@ The technologies used for the development of the app's general functionality are
 ![MYSQL](./img/mysql-ar21%20(1)%20(1).svg)
 ![DOCKER]( ./img/docker-ar21%20(1)%20(2).svg)
 
+### JavaScript
+
+JavaScript is a versatile and powerful programming language mainly used in web development to add interactivity to web pages. It's an interpreted, high-level language that runs in the client's browser, allowing the creation of dynamic and content-rich web applications. Besides web development, JavaScript is also used in server-side environments (Node.js), desktop applications, and mobile app development.
+
+### Node.js
+
+Node.js is a JavaScript runtime environment based on Google Chrome's V8 engine. It enables running JavaScript code on the server-side, making it ideal for web application and API development. Some of its features include:
+
+- JavaScript on the Server: Node.js allows using JavaScript on both the client and server sides, simplifying the development of full-stack web applications with a single programming language.
+- Event-Driven and Asynchronous: Node.js employs an event-driven, asynchronous programming model, enabling it to handle multiple concurrent requests efficiently without blocking the main thread.
+- NPM (Node Package Manager): Node.js comes with NPM, a built-in package manager that allows installing, managing, and sharing reusable code packages easily.
+- Scalability: Node.js is highly scalable and can be used to build high-concurrency, high-performance applications, making it popular for real-time web applications and RESTful APIs.
+
+### Express
+
+Express is a web application framework for Node.js that simplifies web application and API development. Some of its features include:
+
+- Routing: Express provides a flexible router that allows defining routes to handle HTTP requests and respond with dynamic content.
+- Middleware: It allows integrating third-party middleware to add additional functionality, such as handling cookies, authentication, and request logging.
+- Request and Response Handling: Express makes handling HTTP requests and responses easy through built-in methods and functions, simplifying the creation of robust web applications and APIs.
+
+### Sequelize
+
+Sequelize is an ORM (Object-Relational Mapping) for Node.js, which facilitates interaction with relational databases like MySQL, PostgreSQL, SQLite, and MSSQL. It provides a promise-based interface for performing database queries and CRUD operations, simplifying the development and management of the persistence layer of an application.
+
+### Bcrypt
+
+Bcrypt is a library that provides secure password hashing functions to protect passwords stored in your database. It uses an adaptive hashing algorithm that adds an additional layer of security by generating a hash of the user's password. Some of its key features include:
+
+- Robust Security: Bcrypt employs a deliberately slow and resource-intensive hashing algorithm, making it highly resistant to brute-force and dictionary attacks.
+- Automatic Salting: Bcrypt automatically incorporates a unique salt value into each password hash it generates. This prevents rainbow table attacks and makes each hash unique, even if the passwords are identical.
+- Ease of Use: Bcrypt provides a simple interface for generating and verifying hashed passwords, making it easy to integrate into your applications.
+- Scalability: Bcrypt is still fast enough to scale in production applications without significantly impacting server performance.
+
+### JWT (JSON Web Token)
+
+JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. It is particularly useful in authentication and authorization environments, as it allows generating signed tokens that can be verified and trusted, ensuring the integrity of transmitted data. In this API, JWT is used for user authentication, providing an additional layer of security by protecting sensitive routes and resources.
+
+
+### MySQL Workbench
+
+MySQL Workbench is a visual database design and administration tool for MySQL databases. It allows designing database schemas, creating and modifying tables, executing SQL queries, managing users and privileges, and performing database administration and maintenance tasks. It is an essential tool for developers and database administrators working with MySQL.
+
+### Docker
+
+Docker is a container platform that enables packaging, distributing, and running applications in isolated environments called containers. It provides a fast and efficient way to deploy applications, as containers are lightweight, portable, and self-contained. Docker facilitates creating consistent development and production environments, simplifies infrastructure management, and improves application scalability and security.
 
 ## Database Architecture
 
