@@ -75,35 +75,24 @@ Dentro de la API tanto compradores(users) como los administradores(admin) de la 
 
 A continuación se presenta la lista de endpoints que permiten el acceso y control a distintas funcionalidades dependiendo de los datos que se desean obtener. 
 
-1) Como administrador(admin): 
+## Lista de Funcionalidades del Administrador (Admin Functionalities)
 
-    * Listado de todos los usuarios
-    
-    * Listado de todos los productos
-    
-    * Añadir productos
+- **GET /allusers**: Obtener todos los usuarios.
+- **GET /allstore**: Obtener todas las tiendas.
+- **POST /addproduct**: Agregar un producto a la tienda.
+- **DELETE /deleteuser**: Eliminar un usuario.
+- **DELETE /deleteproduct**: Eliminar un producto.
 
-    * Eliminar productos
+## Lista de Funcionalidades de Usuario (User Functionalities)
 
-    * Eliminar usuarios
- 
- 2) Como comprador(user): 
-
-    * Registrarse
-
-    * Login 
-
-    * Acceder al perfil de usuario 
-
-    * Modificar o actualizar datos del perfil de usuario
-
-    * Modificar o actualizar password 
-
-    * Modificar o actualizar email
-    
-    * Añadir productos al carro de la compra
-
-    * Realizar un pedido 
+- **POST /register**: Registrar un usuario.
+- **POST /login**: Iniciar sesión.
+- **GET /myprofile**: Obtener mi perfil.
+- **PATCH /updatemyprofile**: Actualizar mi perfil.
+- **PATCH /editmypassword**: Editar mi contraseña.
+- **PATCH /editmyemail**: Editar mi correo electrónico.
+- **POST /addproducttocart**: Add a product to the cart (requires authorization and role validation).
+- **POST /makeorder**: Make an order (requires authorization and role validation).
 
 
 # English version 
@@ -190,21 +179,21 @@ Within the API, both buyers (users) and administrators (admin) of the informatio
 
 Below is the list of endpoints that allow access and control of different functionalities depending on the data that is desired to be obtained.
 
-1) As an administrator (admin): 
+## Admin Functionalities List
 
-    - List of all users
-    - List of all products
-    - Add products
-    - Delete products
-    - Delete users
- 
- 2) As a buyer (user): 
+- **GET /allusers**: Get all users.
+- **GET /allstore**: Get all stores.
+- **POST /addproduct**: Add a product to the store.
+- **DELETE /deleteuser**: Delete a user.
+- **DELETE /deleteproduct**: Delete a product.
 
-    - Sign up
-    - Login 
-    - Access user profile 
-    - Modify or update user profile data
-    - Modify or update password 
-    - Modify or update email
-    - Add products to the shopping cart
-    - Place an order
+## User Functionalities List
+
+- **POST /register**: Register a user.
+- **POST /login**: Log in.
+- **GET /myprofile**: Get my profile.
+- **PATCH /updatemyprofile**: Update my profile.
+- **PATCH /editmypassword**: Edit my password.
+- **PATCH /editmyemail**: Edit my email.
+- **POST /addproducttocart**: Add a product to the cart (requires authorization and role validation).
+- **POST /makeorder**: Make an order (requires authorization and role validation).
